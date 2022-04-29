@@ -1,0 +1,55 @@
+
+
+.logo{
+    width: 120px;
+    height: 64px;
+   margin-left: 20px;
+}
+
+#nav{
+    display: flex;
+    /* border: 1px solid black; */
+    align-items: center;
+    height: 64px;
+    position: fixed;
+  top: 0;
+  width: 100%
+}
+.a1{
+    margin-left: 30px;
+}
+
+.int{
+     margin-left: 280px;
+     height: 32px;
+     width: 500px;
+     font-size: 20px;
+    
+}
+.btn{
+    height: 37px;
+    width: 70px;
+    font-size: 25px;
+}
+
+.mic{
+    margin-left: 10px;
+    height: 30px;
+    width: 25px;
+    /* border: 1px solid red; */
+    border-radius: 17px;
+    background-color: rgb(208, 233, 254);
+}
+.vid{
+    margin-left: 270px;
+}
+
+.app{
+    margin-left: 20px;
+}
+.noti{
+    margin-left: 20px;
+}
+.acc{
+    margin-left: 20px;
+}

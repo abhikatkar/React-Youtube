@@ -1,0 +1,46 @@
+.main{
+    width: 250px;
+     /* border: 1px solid red; */
+     overflow: auto;
+     height: 655px;
+     margin-top: 65px;
+}
+
+.b1{
+    display: flex;
+    /* border: 1px solid red; */
+    align-items: center;
+    height: 35px;
+}
+
+.b1:hover{
+    background: rgb(236, 236, 236);
+}
+
+.b2{
+    margin-left: 30px;
+    /* border: 1px solid red;   */
+}
+
+.b3{
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+.title{
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.subPic{
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+.broadCast{
+    margin-left: 55px;
+    color: red;
+    font-size: 15px;
+}
