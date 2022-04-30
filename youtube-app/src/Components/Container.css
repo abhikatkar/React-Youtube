@@ -1,0 +1,13 @@
+
+
+
+.container{
+    border: 1px solid red;
+    margin-top: 65px;
+    width: 80%;
+}
+
+.loading{
+    margin-top: 100px;
+    margin-left: 200px;
+}

@@ -1,5 +1,5 @@
 .main{
-    width: 250px;
+    width: 18%;
      /* border: 1px solid red; */
      overflow: auto;
      height: 655px;
@@ -10,7 +10,7 @@
     display: flex;
     /* border: 1px solid red; */
     align-items: center;
-    height: 35px;
+    height: 40px;
 }
 
 .b1:hover{
@@ -24,12 +24,12 @@
 
 .b3{
     margin-left: 30px;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .title{
     margin-left: 30px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .subPic{
