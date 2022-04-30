@@ -5,7 +5,7 @@ import { GET_DATA, GET_LOADING , GET_ERROR } from "./action";
 const initState = {
     data:[],
     loading:false,
-    error:false
+    error:false,
 }
 
 

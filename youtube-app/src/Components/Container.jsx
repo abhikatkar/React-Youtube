@@ -10,19 +10,19 @@ export const Container = () => {
   const [query, setQuery] = useState("songs");
 
   const dispatch = useDispatch();
-  const {allData,loading,error} = useSelector((store) => store.data);
-
+  const { data , loading , error} = useSelector((store) => store.data);
   
+
   useEffect(() => {
-      getInfo();
-  }, []);
+    getInfo();
+  },[]);
 
   function getInfo() {
     dispatch(getLoading());
 
     axios
       .get(
-        "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=&order=viewCount&q=india&type=video&key=AIzaSyDlQhs42tIHeue1zRINWk1sdZtMLs4pf84"
+        // "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=viewCount&q=india&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88"
       )
       .then(({data}) => {
         dispatch(getData(data.items));
@@ -30,9 +30,20 @@ export const Container = () => {
       .catch(() => dispatch(getError()));
   }
 
-  return loading ? <h1 className="loading...">Loading</h1> : (
+  
+
+  return (
     <div className="container">
       <h1>container</h1>
+      
+      {data.map()}
     </div>
   );
 };
+
+
+// loading ? (
+//   <h1 className="loading">Loading...</h1>
+// ) : error ? (
+//   <h1 className="loading">Error</h1>
+// ) :
