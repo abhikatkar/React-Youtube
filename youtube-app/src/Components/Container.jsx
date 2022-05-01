@@ -6,12 +6,10 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getData, getLoading, getError } from "./Redux/Data/action";
 import { getValue } from "./Redux/Search/action";
+import { Link } from "react-router-dom";
 
 export const Container = () => {
  
-
-  
-   
 
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((store) => store.data);
@@ -28,7 +26,7 @@ export const Container = () => {
 
     axios
       .get(
-        // `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=viewCount&q=${value}&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88`
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&order=viewCount&q=${value}&type=video&key=AIzaSyDlQhs42tIHeue1zRINWk1sdZtMLs4pf84`
       )
       .then(({ data }) => {
         dispatch(getData(data.items));
@@ -55,13 +53,16 @@ export const Container = () => {
 
       <div className="allOne">
       {data.map((e) => {
+        
         return (
-          
-            <div className="box">
+         
+            <div  className="box">
+              <Link to={`/details/${e.id.videoId}`}>
               <img
                 src={e.snippet.thumbnails.high.url}
                 alt=""
               />
+              </Link>
               <div className="con">
                 <h1>
                   <AiFillGithub />
@@ -71,7 +72,9 @@ export const Container = () => {
                   <p className="channel">{e.snippet.channelTitle}</p>
                 </div>
               </div>
+              
             </div>
+            
           
         );
       })}
