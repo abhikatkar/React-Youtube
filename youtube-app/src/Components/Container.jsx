@@ -1,28 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import "./Container.css";
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getData, getLoading, getError } from "./Redux/Data/action";
+import { getValue } from "./Redux/Search/action";
 
 export const Container = () => {
-  const [query, setQuery] = useState("songs");
+ 
+
+  
+   
 
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((store) => store.data);
-  console.log(data);
+  
+ 
 
   useEffect(() => {
-    getInfo();
-  }, []);
+   dispatch(getValue("music"))
+    getInfo("music");
+  },[]);
 
-  function getInfo() {
+  function getInfo(value) {
     dispatch(getLoading());
 
     axios
       .get(
-        // `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&order=viewCount&q=${query}&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88`
+        // `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=viewCount&q=${value}&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88`
       )
       .then(({ data }) => {
         dispatch(getData(data.items));
@@ -32,7 +38,21 @@ export const Container = () => {
 
   return (
     <div className="container">
-      
+
+      <div className="top">
+        <button onClick={()=> (getInfo("JavaScript"))}>JavaScript</button>
+        <button onClick={()=> (getInfo("Comedies"))}>Comedies</button>
+        <button onClick={()=> (getInfo("Doctor Strange"))}>Doctor Strange</button>
+        <button onClick={()=> (getInfo("Cricket"))}>Cricket</button>
+        <button onClick={()=> (getInfo("E-Vehicles"))}>E-Vehicles</button>
+        <button onClick={()=> (getInfo("Music"))}>Music</button>
+        <button onClick={()=> (getInfo("ReactJs"))}>ReactJs</button>
+        <button onClick={()=> (getInfo("NodeJs"))}>NodeJs</button>
+        <button onClick={()=> (getInfo("HTML"))}>HTML</button>
+        <button onClick={()=> (getInfo("css"))}>CSS</button>
+        <button onClick={()=> (getInfo("Green Hydrogen"))}>Green Hydrogen</button>
+      </div>
+
       <div className="allOne">
       {data.map((e) => {
         return (

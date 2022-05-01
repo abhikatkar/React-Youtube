@@ -4,7 +4,11 @@ import { Navbar } from "./Navbar";
 import './Home.css';
 
 
+
 export const Home = () => {
+      
+   
+    
 
     return(
         <div>

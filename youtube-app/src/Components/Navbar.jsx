@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiFillAudio } from "react-icons/ai";
@@ -5,10 +6,29 @@ import { AiFillVideoCamera} from "react-icons/ai";
 import { AiFillAppstore } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdOutlineAccountCircle } from "react-icons/md";
-
+import { useDispatch } from "react-redux";
+import { getData } from "./Redux/Data/action";
+import axios from "axios";
 import "./Navbar.css"
 
 export const Navbar = () => {
+ const dispatch = useDispatch() 
+
+
+ function getInfo(value1) {
+  axios
+    .get(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=viewCount&q=${value1}&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88`
+    )
+    .then(({ data }) => {
+      dispatch(getData(data.items));
+    })
+};
+
+
+
+  const [value1, setValue1]  = useState("")
+// console.log(value);
   return (
     <div id="nav">
       
@@ -21,8 +41,8 @@ export const Navbar = () => {
         alt=""
       />
 
-      <input className="int" type="text" placeholder="Search" />
-      <button className="btn"><AiOutlineSearch/></button>
+      <input onChange={(e)=>(setValue1(e.target.value))} className="int" type="text" placeholder="Search" />
+      <button onClick={()=> (getInfo(value1))} className="btn"><AiOutlineSearch/></button>
       <h2 className="mic"><AiFillAudio/></h2>
       <h2 className="vid"><AiFillVideoCamera/></h2>
       <h2 className="app"><AiFillAppstore/></h2>
