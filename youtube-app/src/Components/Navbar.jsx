@@ -6,28 +6,27 @@ import { AiFillVideoCamera} from "react-icons/ai";
 import { AiFillAppstore } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdOutlineAccountCircle } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getData } from "./Redux/Data/action";
 import axios from "axios";
 import "./Navbar.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
  const dispatch = useDispatch() 
+
+ const {value,user} = useSelector((store)=> store.value);
 
 
  function getInfo(value1) {
    
   axios
     .get(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&order=viewCount&q=${value1}&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88`
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=18&order=viewCount&q=${value1}&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88`
     )
     .then(({ data }) => {
       dispatch(getData(data.items));
-    });
-
-    return(<> <Navigate to={"/"}/> </>)
-    
+    });    
 };
 
 
@@ -54,7 +53,11 @@ export const Navbar = () => {
       <h2 className="vid"><AiFillVideoCamera/></h2>
       <h2 className="app"><AiFillAppstore/></h2>
       <h2 className="noti"><IoMdNotificationsOutline/></h2>
-      <Link to={"/signin"}><h2 className="acc"><MdOutlineAccountCircle/></h2></Link>
+      {value ?       
+         <div className="user"> <img src={user} alt="" /> </div>: <Link to={"/signin"}><h1 className="acc"><MdOutlineAccountCircle/></h1></Link>       
+     
+       }
+      
      
     </div>
   );

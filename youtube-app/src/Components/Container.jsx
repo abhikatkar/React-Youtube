@@ -5,7 +5,6 @@ import { AiFillGithub } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getData, getLoading, getError } from "./Redux/Data/action";
-import { getValue } from "./Redux/Search/action";
 import { Link } from "react-router-dom";
 
 export const Container = () => {
@@ -13,11 +12,10 @@ export const Container = () => {
 
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((store) => store.data);
-  
+  const {value} = useSelector((store)=> store.value)
  
 
   useEffect(() => {
-   dispatch(getValue("music"))
     getInfo("music");
   },[]);
 
@@ -26,7 +24,7 @@ export const Container = () => {
 
     axios
       .get(
-        // `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&order=viewCount&q=${value}&type=video&key=AIzaSyDlQhs42tIHeue1zRINWk1sdZtMLs4pf84`
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=18&order=viewCount&q=${value}&type=video&key=AIzaSyBDtD3uMk-u4ZkvmQtJrXrJOIwr5yBvS88`
       )
       .then(({ data }) => {
         dispatch(getData(data.items));
@@ -51,11 +49,19 @@ export const Container = () => {
         <button onClick={()=> (getInfo("Green Hydrogen"))}>Green Hydrogen</button>
       </div>
 
+
+
+      
+       {value ? 
       <div className="allOne">
       {data.map((e) => {
         
-        return (
-         
+        return (  
+          loading ? (
+            <h1 className="loading">Loading...</h1>
+          ) : error ? (
+            <h1 className="loading">Error</h1>
+          ) :       
             <div  className="box">
               <Link to={`/details/${e.id.videoId}`}>
               <img
@@ -73,18 +79,48 @@ export const Container = () => {
                 </div>
               </div>
               
-            </div>
-            
+            </div>            
           
         );
       })}
       </div>
+      :
+      <div className="allOne">
+      {data.map((e) => {
+        
+        return (  
+                
+            <div  className="box">
+              <Link to={"/signin"}>
+              <img
+                src={e.snippet.thumbnails.high.url}
+                alt=""
+              />
+              </Link>
+              <div className="con">
+                <h1>
+                  <AiFillGithub />
+                </h1>
+                <div className="side">
+                  <h4>{e.snippet.title}</h4>
+                  <p className="channel">{e.snippet.channelTitle}</p>
+                </div>
+              </div>
+              
+            </div>            
+          
+        );
+      })}
+      </div>
+
+     
+    }
+
+
+
+      
     </div>
   );
 };
 
-// loading ? (
-//   <h1 className="loading">Loading...</h1>
-// ) : error ? (
-//   <h1 className="loading">Error</h1>
-// ) :
+

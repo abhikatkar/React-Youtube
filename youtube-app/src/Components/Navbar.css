@@ -52,4 +52,17 @@
 }
 .acc{
     margin-left: 20px;
+    color: rgb(200, 0, 0);
+}
+.user{
+    border: 3px solid rgb(7, 7, 7);
+    width: 45px;
+    height: 45px;
+    margin-left: 10px;
+    border-radius: 24px;
+}
+.user img{
+    width: 45px;
+    height: 45px;
+    border-radius: 24px;
 }
