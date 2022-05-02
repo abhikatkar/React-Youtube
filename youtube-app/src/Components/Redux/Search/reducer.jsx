@@ -2,7 +2,7 @@
 import { GET_VALUE } from "./action"
 
 const initState = {
-    value:"",
+    value:false,
 }
 
 

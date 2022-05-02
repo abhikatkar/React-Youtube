@@ -3,6 +3,7 @@ import { Navbar } from "./Navbar";
 
 import "./Details.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 
@@ -23,13 +24,13 @@ export const Details = ()=>{
                
                     <div className="big">
                 <div className="left">
-                    <iframe src={`https://www.youtube.com/embed/${id}`}></iframe>
+                    <iframe  src={`https://www.youtube.com/embed/${id}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
                 </div>
                 <div className="right">
                 {data.map((e)=>{
                     return(
                     <div className="inner">
-                        <div className="l"><img src={e.snippet.thumbnails.high.url} alt="" /></div>
+                        <div className="l"><Link to={`/details/${e.id.videoId}`}><img src={e.snippet.thumbnails.high.url} alt="" /></Link></div>
                         <div className="r">
                             <h4>{e.snippet.title}</h4>
                             <h7>{e.snippet.channelTitle}</h7>

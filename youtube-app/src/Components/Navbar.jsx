@@ -54,8 +54,8 @@ export const Navbar = () => {
       <h2 className="vid"><AiFillVideoCamera/></h2>
       <h2 className="app"><AiFillAppstore/></h2>
       <h2 className="noti"><IoMdNotificationsOutline/></h2>
-      <h2 className="acc"><MdOutlineAccountCircle/></h2>
-
+      <Link to={"/signin"}><h2 className="acc"><MdOutlineAccountCircle/></h2></Link>
+     
     </div>
   );
 };

@@ -17,7 +17,7 @@
 
 }
 .right{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     width: 38%;
     height: 615px;
     margin-top: 30px;
@@ -29,14 +29,22 @@
      height: 100%;
  }
  .inner{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     width: 100%;
     height: 130px;
     margin-bottom: 10px;
     display: flex;
  }
+ .inner:hover{
+    /* border: 1px solid white; */
+    width: 100%;
+    height: 130px;
+    margin-bottom: 10px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ }
  .l{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     width: 40%;
     height: 100%;
  }
@@ -45,7 +53,7 @@
      height: 100%;
  }
  .r{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     width: 56%;
     height: 100%;
     margin-left: 2%;
