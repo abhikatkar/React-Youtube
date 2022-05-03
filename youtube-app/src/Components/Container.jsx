@@ -33,6 +33,12 @@ export const Container = () => {
   }
 
   return (
+    loading ? (
+      <h1 className="loading">Loading...</h1>
+    ) : error ? (
+      <h1 className="loading">Error</h1>
+    ) :  
+    
     <div className="container">
 
       <div className="top">
@@ -56,12 +62,7 @@ export const Container = () => {
       <div className="allOne">
       {data.map((e) => {
         
-        return (  
-          loading ? (
-            <h1 className="loading">Loading...</h1>
-          ) : error ? (
-            <h1 className="loading">Error</h1>
-          ) :       
+        return (       
             <div  className="box">
               <Link to={`/details/${e.id.videoId}`}>
               <img
