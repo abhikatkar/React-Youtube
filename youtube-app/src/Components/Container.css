@@ -7,8 +7,8 @@
     width: 80%;
     overflow: auto;
      height: 632px;
-    margin-left: 10px;
-    padding: 10px;
+    margin-left: 0px;
+    padding: 0px 10px 10px 10px;
 }
 
 .loading{
@@ -45,7 +45,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 10px;       
+    margin-left: 0px;       
 }
 
 .channel{
@@ -59,18 +59,22 @@
 
 .allOne{
     display: flex;
-    grid-gap: 8px;
+    grid-gap: 4px;
     flex-wrap: wrap;
     /* border: 1px solid red; */
+    margin-top: 85px;
 }
 
 .top{
-    /* border: 1px solid black; */
-    width: 100%;
+    border-top: 1px solid rgb(190, 190, 190);
+    border-bottom: 1px solid rgb(190, 190, 190);
+    width: 79%;
     height: 65px;
     display: flex;
     align-items: center;
     gap: 20px;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
 }
 .top button{
     height: 40px;
