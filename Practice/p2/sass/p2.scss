@@ -1,0 +1,52 @@
+
+@import "mixin";
+@import "var";
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.main_header{
+    width: 100vw;
+    height: 100vh;
+    @include flexprop();
+    background-color: $bg-color;
+
+    h1{
+        color: red;
+        font-size: 4rem;
+        &:hover{
+            color: rgb(6, 122, 122);
+        }
+        &::after{
+            content: " Good morning";
+        }
+    }
+
+
+    
+    p{
+        color: red;
+        font-size: 4rem;
+    }
+}
+
+
+@media (max-width:998px) {
+    html{
+        font-size: 55%;
+    }
+}
+
+
+@media (max-width:738px) {
+    html{
+        font-size: 35%;
+    }
+}
+
