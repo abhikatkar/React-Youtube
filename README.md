@@ -67,5 +67,5 @@
 <hr/>
 
 - Solo project executed in 3 days.
-- While building this project, I touched important topics of **ReactJs** like **useState, props** , **useEffect**, **useRef**, **Redux**  
+- While building this project, I touched important topics of **ReactJs** like **useState , props** , **useEffect** , **useRef** , **Router** , **Redux**  
 
